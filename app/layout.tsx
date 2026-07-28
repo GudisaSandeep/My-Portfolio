@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   description:
     'Generative AI Engineer building Agentic AI systems, RAG applications and real-world AI products. Grand Finalist at Smart India Hackathon 2024. Founder of MonoSid AI Therapy Platform.',
   icons: {
-    icon: '/sandeep_hero_main.png',
+    icon: [
+      { url: '/sandeep_hero_main.png', type: 'image/png' },
+    ],
     shortcut: '/sandeep_hero_main.png',
     apple: '/sandeep_hero_main.png',
   },
