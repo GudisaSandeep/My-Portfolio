@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { profileQuestions } from "@/lib/site";
 
-export default function ProfileAnswers() {
+export default function ProfileAnswers({
+  questions = profileQuestions,
+  showBiographyLink = true,
+}: {
+  questions?: ReadonlyArray<{ question: string; answer: string }>;
+  showBiographyLink?: boolean;
+}) {
   return (
     <section
       id="questions"
@@ -25,7 +31,7 @@ export default function ProfileAnswers() {
           </p>
         </div>
         <div className="profile-answer-grid">
-          {profileQuestions.map((item) => (
+          {questions.map((item) => (
             <details key={item.question}>
               <summary>
                 {item.question}
@@ -36,9 +42,11 @@ export default function ProfileAnswers() {
           ))}
         </div>
         <div className="profile-answer-links">
-          <Link href="/about" className="text-link">
-            Read my full biography ↗
-          </Link>
+          {showBiographyLink && (
+            <Link href="/about" className="text-link">
+              Read my full biography ↗
+            </Link>
+          )}
           <Link href="/projects/fixyt" className="text-link">
             The story behind Fixyt ↗
           </Link>

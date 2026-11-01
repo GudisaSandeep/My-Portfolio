@@ -3,7 +3,7 @@ import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress";
 import StructuredData from "@/components/StructuredData";
 import { identityGraph } from "@/lib/identity";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, verificationMetadata } from "@/lib/seo";
 import { allowIndexing, absoluteUrl, profile, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "/",
   ),
   metadataBase: new URL(siteUrl),
+  verification: verificationMetadata(),
   applicationName: profile.name,
   authors: [{ name: profile.name, url: absoluteUrl("/about") }],
   creator: profile.name,

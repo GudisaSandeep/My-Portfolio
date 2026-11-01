@@ -19,10 +19,16 @@
 | `/sitemap.xml` | The three canonical, indexable content pages |
 | `/opengraph-image` | Generated 1200 × 630 sharing image using bundled fonts and the approved portrait |
 
+## Expanded biography
+
+The About page contains the professional story, current and earlier roles, nine expandable project profiles, six expertise areas, education and recognition, and twelve visible FAQs. `lib/biography.ts` supplies its project, expertise, section, and question data. `lib/biography-seo.ts` describes the ProfilePage sections and project index from the same source; these references point to actual visible anchors. Project entries describe parts of this biography, not blanket claims of original authorship of upstream software.
+
+The homepage retains its four concise FAQs. All key biography content is server-rendered and available without JavaScript. Native details/summary controls support keyboard exploration.
+
 ## Source of truth
 
 - `lib/site.ts`: canonical origin, owner identity, social links, visible question-and-answer data, and indexing configuration.
-- `lib/seo.ts`: page-specific titles, descriptions, canonical links, Open Graph, and large-image sharing metadata.
+- `lib/seo.ts`: page-specific titles, descriptions, canonical links, Open Graph, large-image sharing metadata, and optional Google/Bing verification tags.
 - `lib/identity.ts`: stable Person, WebSite, Organization, page, and breadcrumb identifiers.
 - `components/StructuredData.tsx`: JSON-LD serialization with `<` escaped to prevent a string from closing its script element.
 - `sandeepgudisa.md`: detailed editorial sourcebook, evidence classification, project versions, and verification notes. It is not served as a public biography route.
@@ -47,7 +53,7 @@ The new pages deliberately avoid turning sourcebook research notes into factual 
 
 ## Validation
 
-1. Run `npm run build` for type checking and static production generation.
+1. Run `npm run build` for type checking and static production generation, then `npm run check:seo` to audit the generated HTML, structured data, and crawler resources.
 2. Start the built site with `npm run start`.
 3. Inspect `/`, `/about`, and `/projects/fixyt` for unique canonical URLs, correct descriptions, one visible primary heading, matching metadata, and valid JSON-LD.
 4. Confirm the graph has one consistent person identifier and founder references resolve to it.
@@ -56,7 +62,13 @@ The new pages deliberately avoid turning sourcebook research notes into factual 
 7. Validate the deployed JSON-LD with Schema.org Validator. Use Google's Rich Results Test for supported Google features; a lack of a rich result for generic Person markup is not by itself a schema error.
 8. Check preview/staging builds expose noindex metadata and disallow rules.
 
+## Optional verification configuration
+
+Set `GOOGLE_SITE_VERIFICATION` to the raw content value from Google’s HTML verification tag. Set `BING_SITE_VERIFICATION` to the raw content value from Bing’s tag. These variables are optional, contain verification identifiers, and are rendered only when provided. They do not themselves verify an account; the owner must complete the corresponding webmaster workflow after redeployment. Do not put a complete HTML tag into either value.
+
 ## Owner follow-up after deployment
+
+Follow [SEO-MANUAL-CHECKLIST.md](SEO-MANUAL-CHECKLIST.md) for the step-by-step deployment, ownership verification, sitemap submission, and monitoring workflow.
 
 - Deploy the new build to the confirmed canonical site. A Git push by itself does not establish a successful hosting deployment.
 - Verify ownership in Google Search Console and Bing Webmaster Tools.
