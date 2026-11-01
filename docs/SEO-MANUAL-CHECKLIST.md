@@ -32,10 +32,10 @@ Production pages should be publicly reachable and have one canonical URL each. T
 1. Open [Google Search Console](https://search.google.com/search-console/).
 2. Add the **URL-prefix** property `https://sandeepgudisa.netlify.app/`. This suits the hosted subdomain; a DNS Domain property requires DNS control of the relevant domain.
 3. If using **HTML tag** verification, copy only the value of the tag’s `content` attribute.
-4. In Netlify’s project environment settings, add a Production environment variable named `GOOGLE_SITE_VERIFICATION` with that value.
+4. The supplied Google HTML-tag value is already configured in the repository. If Google gives you a different value later, update `lib/site-verification.json` or set `GOOGLE_SITE_VERIFICATION` in Netlify’s Production environment.
 5. Redeploy, then finish verification in Search Console.
 
-The code outputs the `google-site-verification` tag only when the variable is populated. An alternative supported ownership method can be used instead; do not add a fake verification value.
+The owner-supplied Google verification value is already saved in `lib/site-verification.json`, so the code includes the verification tag without requiring an environment variable. `GOOGLE_SITE_VERIFICATION` remains an optional override if the verification value changes. Keep the tag available after verification; redeploy whenever its value changes.
 
 ## 4. Submit the sitemap and inspect pages
 

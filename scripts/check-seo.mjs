@@ -2,6 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
+const verificationDefaults = JSON.parse(
+  await readFile(
+    new URL("../lib/site-verification.json", import.meta.url),
+    "utf8",
+  ),
+);
+
 // Audit the actual prerendered output, including content available without JavaScript.
 const output = join(process.cwd(), ".next/server/app");
 const origin = new URL(
@@ -83,13 +90,18 @@ for (const route of routes) {
     !html.includes("6300050907"),
     `${route.path}: removed mobile number stays excluded`,
   );
-  for (const [env, name] of [
-    ["GOOGLE_SITE_VERIFICATION", "google-site-verification"],
-    ["BING_SITE_VERIFICATION", "msvalidate.01"],
+  for (const [env, name, fallback] of [
+    [
+      "GOOGLE_SITE_VERIFICATION",
+      "google-site-verification",
+      verificationDefaults.google,
+    ],
+    ["BING_SITE_VERIFICATION", "msvalidate.01", undefined],
   ]) {
+    const expectedVerification = process.env[env]?.trim() || fallback;
     assert.deepEqual(
       meta(html, name),
-      process.env[env]?.trim() ? [process.env[env].trim()] : [],
+      expectedVerification ? [expectedVerification] : [],
       `${route.path}: optional ${name}`,
     );
   }

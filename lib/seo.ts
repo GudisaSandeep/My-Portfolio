@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, profile } from "./site";
+import verificationDefaults from "./site-verification.json";
 
 export function pageMetadata(
   title: string,
@@ -36,7 +37,8 @@ export function pageMetadata(
 }
 
 export function verificationMetadata(): Metadata["verification"] {
-  const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  const google =
+    process.env.GOOGLE_SITE_VERIFICATION?.trim() || verificationDefaults.google;
   const bing = process.env.BING_SITE_VERIFICATION?.trim();
   if (!google && !bing) return undefined;
   return {

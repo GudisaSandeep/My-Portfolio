@@ -28,7 +28,7 @@ The homepage retains its four concise FAQs. All key biography content is server-
 ## Source of truth
 
 - `lib/site.ts`: canonical origin, owner identity, social links, visible question-and-answer data, and indexing configuration.
-- `lib/seo.ts`: page-specific titles, descriptions, canonical links, Open Graph, large-image sharing metadata, and optional Google/Bing verification tags.
+- `lib/seo.ts`: page-specific titles, descriptions, canonical links, Open Graph, large-image sharing metadata, and Google/Bing verification tags.
 - `lib/identity.ts`: stable Person, WebSite, Organization, page, and breadcrumb identifiers.
 - `components/StructuredData.tsx`: JSON-LD serialization with `<` escaped to prevent a string from closing its script element.
 - `sandeepgudisa.md`: detailed editorial sourcebook, evidence classification, project versions, and verification notes. It is not served as a public biography route.
@@ -64,7 +64,7 @@ The new pages deliberately avoid turning sourcebook research notes into factual 
 
 ## Optional verification configuration
 
-Set `GOOGLE_SITE_VERIFICATION` to the raw content value from Google’s HTML verification tag. Set `BING_SITE_VERIFICATION` to the raw content value from Bing’s tag. These variables are optional, contain verification identifiers, and are rendered only when provided. They do not themselves verify an account; the owner must complete the corresponding webmaster workflow after redeployment. Do not put a complete HTML tag into either value.
+The owner-supplied Google verification value is saved in `lib/site-verification.json` and rendered by default. Optionally set `GOOGLE_SITE_VERIFICATION` to override it with the raw content value from Google’s HTML verification tag. Set `BING_SITE_VERIFICATION` to the raw content value from Bing’s tag. The variables are optional and contain public verification identifiers. Google’s saved value is rendered by default; Bing’s tag is rendered only when configured. They do not themselves verify an account; the owner must complete the corresponding webmaster workflow after redeployment. Do not put a complete HTML tag into either value.
 
 ## Owner follow-up after deployment
 
