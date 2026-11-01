@@ -3,7 +3,7 @@ export default function Footer() {
     <footer id="contact" className="footer">
       <div className="container">
         <div className="section-topline">
-          <span className="eyebrow">06 / LET’S CONNECT</span>
+          <span className="eyebrow">LET’S CONNECT</span>
           <span className="section-aside">
             GOOD THINGS START WITH A CONVERSATION
           </span>
@@ -33,7 +33,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-bottom">
-          <a className="footer-signature" href="#home">
+          <a className="footer-signature" href="/#home">
             sg<span>↗</span>
           </a>
           <p>© {new Date().getFullYear()} Sandeep Gudisa</p>
@@ -59,8 +59,15 @@ export default function Footer() {
             >
               Instagram ↗
             </a>
+            <a
+              href="https://www.threads.com/@gudisasandeep"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Threads ↗
+            </a>
           </div>
-          <a href="#home" className="back-top">
+          <a href="/#home" className="back-top">
             BACK TO TOP ↑
           </a>
         </div>

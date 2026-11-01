@@ -7,10 +7,19 @@ import Skills from "@/components/Skills";
 import Contributions from "@/components/Contributions";
 import Achievements from "@/components/Achievements";
 import Footer from "@/components/Footer";
+import ProfileAnswers from "@/components/ProfileAnswers";
+import StructuredData from "@/components/StructuredData";
+import { webPageSchema } from "@/lib/identity";
 
 export default function HomePage() {
   return (
     <>
+      <StructuredData
+        data={webPageSchema(
+          "/",
+          "Sandeep Gudisa — AI Engineer & Founder of Fixyt",
+        )}
+      />
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -23,6 +32,7 @@ export default function HomePage() {
         <Skills />
         <About />
         <Contributions />
+        <ProfileAnswers />
       </main>
       <Footer />
     </>

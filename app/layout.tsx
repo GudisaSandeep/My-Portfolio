@@ -1,21 +1,35 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress";
+import StructuredData from "@/components/StructuredData";
+import { identityGraph } from "@/lib/identity";
+import { pageMetadata } from "@/lib/seo";
+import { allowIndexing, absoluteUrl, profile, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sandeep Gudisa — AI Engineer",
-  description:
-    "AI Engineer building Agentic AI systems, RAG applications and real-world AI products. Grand Finalist at Smart India Hackathon 2024. Founder of MonoSid AI Therapy Platform.",
+  ...pageMetadata(
+    "Sandeep Gudisa | AI Engineer & Founder of Fixyt",
+    profile.description,
+    "/",
+  ),
+  metadataBase: new URL(siteUrl),
+  applicationName: profile.name,
+  authors: [{ name: profile.name, url: absoluteUrl("/about") }],
+  creator: profile.name,
+  publisher: profile.name,
+  robots: {
+    index: allowIndexing,
+    follow: allowIndexing,
+    googleBot: {
+      index: allowIndexing,
+      follow: allowIndexing,
+      "max-image-preview": "large",
+    },
+  },
   icons: {
     icon: [{ url: "/mark.svg", type: "image/svg+xml" }],
     shortcut: "/mark.svg",
     apple: "/sandeep_hero_main.png",
-  },
-  openGraph: {
-    title: "Sandeep Gudisa — AI Engineer",
-    description:
-      "AI Engineer • Builder • Problem Solver. Building intelligent systems that solve meaningful problems.",
-    type: "website",
   },
 };
 
@@ -25,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <link
           rel="preload"
@@ -43,6 +57,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <StructuredData data={identityGraph} />
         <ScrollProgress />
         {children}
       </body>

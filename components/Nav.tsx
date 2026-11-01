@@ -8,7 +8,7 @@ export default function Nav() {
       <div className="container nav-inner">
         <a
           className="wordmark"
-          href="#home"
+          href="/#home"
           onClick={() => setOpen(false)}
           aria-label="Sandeep Gudisa home"
         >
@@ -33,18 +33,18 @@ export default function Nav() {
           className={`nav-links${open ? " is-open" : ""}`}
           aria-label="Main navigation"
         >
-          <a href="#projects" onClick={() => setOpen(false)}>
+          <a href="/#projects" onClick={() => setOpen(false)}>
             Selected work
           </a>
-          <a href="#experience" onClick={() => setOpen(false)}>
+          <a href="/#experience" onClick={() => setOpen(false)}>
             Experience
           </a>
-          <a href="#about" onClick={() => setOpen(false)}>
+          <a href="/about" onClick={() => setOpen(false)}>
             About
           </a>
           <a
             className="nav-contact"
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
           >
             Let’s talk <span aria-hidden="true">↗</span>

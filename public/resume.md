@@ -5,7 +5,7 @@ AI Engineer with proven, production-level experience building AI systems. Grand 
 at Smart India Hackathon 2024 (1,500+ competing teams). Founder-engineer of MonoSid, a live AI therapy SaaS platform
 powered by GPT-4. Specialises in Agentic Workflows, Retrieval-Augmented Generation (RAG), and full-stack AI product
 development using LangChain, OpenAI API, and FastAPI. Two internship credentials including Microsoft x AICTE.
-Currently a Software Development Engineer at Vector and part-time Co-Founder of WhiteseaLabs.
+Founder of Fixyt, Software Development Engineer at Vector, and part-time Co-Founder of WhiteSea Labs.
 EDUCATION
 B.Tech. in Computer Science (AI & ML) April 2026
 Andhra Loyola Institute of Engineering and Technology Vijayawada, India
@@ -28,7 +28,7 @@ Co-Founder | Part-time
 IT services company.
 
 FIXYT — Chrome Extension / Infinite Workspace | Started Nov 2025
-Built & Launched | Completed
+Founder | Built & Launched | Completed
 • Architected and launched a visual tab-management platform with an infinite canvas.
 • Built TabFlow browser workflows with multiple workspaces and session restore.
 

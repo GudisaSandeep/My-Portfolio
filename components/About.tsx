@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function About() {
   return (
     <section id="about" className="section about-section">
@@ -12,13 +13,14 @@ export default function About() {
             <div className="portrait-registration" aria-hidden="true">
               +
             </div>
-            <Image
-              src="/sandeep_hero_main.png"
-              alt="Sandeep Gudisa"
-              width={650}
-              height={700}
-              sizes="(max-width: 700px) 90vw, 35vw"
-            />
+            <div className="about-portrait-image">
+              <Image
+                src="/sandeep_hero_main.png"
+                alt="Sandeep Gudisa"
+                fill
+                sizes="(max-width: 650px) 90vw, 40vw"
+              />
+            </div>
             <div className="portrait-caption">
               <span>SANDEEP GUDISA</span>
               <span>MUMBAI, IN ↗</span>
@@ -33,14 +35,15 @@ export default function About() {
               I enjoy the space between “what if” and “it works.”
             </p>
             <p>
-              I’m an AI engineer focused on agentic systems, retrieval, and
-              practical AI products. My work spans autonomous browser tools,
-              classroom computer vision, and conversational experiences.
+              I’m Sandeep Gudisa, an AI engineer based in Mumbai, founder of{" "}
+              <Link href="/projects/fixyt">Fixyt</Link>, and co-founder of{" "}
+              <a href="https://whitesealabs.com/">WhiteSea Labs</a>. I work
+              full-time as a Software Development Engineer at Vector.
             </p>
             <p>
-              I like breaking complex problems into clear, usable systems—and
-              staying close to the product from the first prototype to the final
-              interaction.
+              My work connects agentic AI, browser automation, and practical
+              software products. I like breaking complex problems into clear,
+              usable systems, from the first prototype to the final interaction.
             </p>
             <div className="education">
               <span className="eyebrow">EDUCATION / 2026</span>
@@ -48,6 +51,9 @@ export default function About() {
               <p>Andhra Loyola Institute of Engineering and Technology</p>
             </div>
             <div className="about-links">
+              <Link className="text-link" href="/about">
+                Full biography ↗
+              </Link>
               <a
                 className="text-link"
                 href="https://www.linkedin.com/in/sandeepgudisa/"

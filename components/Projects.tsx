@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ALL = "all";
 
@@ -9,7 +10,7 @@ const projects = [
     id: 1,
     name: "Fixyt — Chrome Extension",
     category: "browser-extension",
-    categoryLabel: "Published Chrome Extension · 2026",
+    categoryLabel: "Founder · Published Chrome Extension · 2026",
     displayUrl: "fixyt.in",
     desc: "Visual tab-management extension that turns browser tabs into interactive cards on an infinite canvas with TabFlow visual automation.",
     tags: [
@@ -209,6 +210,14 @@ export default function Projects() {
                     <span key={t}>{t}</span>
                   ))}
                 </div>
+                {p.id === 1 && (
+                  <Link
+                    className="text-link project-story-link"
+                    href="/projects/fixyt"
+                  >
+                    Read the founder story ↗
+                  </Link>
+                )}
                 {projectNotes[p.id] && (
                   <details className="project-details">
                     <summary>

@@ -27,8 +27,9 @@ export default function Hero() {
               <span className="hero-accent">limitless growth.</span>
             </h1>
             <p className="hero-description">
-              I’m Sandeep. I build AI agents, retrieval systems, and digital
-              products that turn complex problems into useful experiences.
+              I’m Sandeep Gudisa, an AI engineer and founder of Fixyt. I
+              co-founded WhiteSea Labs and build practical AI agents, browser
+              workflows, and software products.
             </p>
             <div className="hero-actions">
               <a href="#projects" className="button button-primary">

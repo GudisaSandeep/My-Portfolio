@@ -21,10 +21,10 @@ const experiences = [
   {
     date: "Started Nov 2025",
     mark: "FX",
-    role: "Fixyt — Built & Launched",
-    company: "Chrome Extension / Infinite Workspace",
+    role: "Founder — Fixyt",
+    company: "Visual Browser Workspace",
     url: "https://fixyt.in/",
-    meta: ["Completed", "Published product"],
+    meta: ["Built & launched", "Completed"],
     bullets: [
       "Architected and launched Fixyt, a visual tab-management platform turning browser tabs into interactive cards on an infinite canvas.",
       "Engineered TabFlow to automate repetitive browser workflows client-side with multi-workspace support and 1-click session restore.",
@@ -140,7 +140,8 @@ export default function Experience() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {new URL(exp.url).hostname} <span aria-hidden="true">↗</span>
+                    {new URL(exp.url).hostname}{" "}
+                    <span aria-hidden="true">↗</span>
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 )}
