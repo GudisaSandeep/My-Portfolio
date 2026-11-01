@@ -64,7 +64,7 @@ The new pages deliberately avoid turning sourcebook research notes into factual 
 
 ## Google HTML-file verification
 
-The original owner-uploaded Google file is stored unchanged at `public/google4e10fe4848c12ad9.html` and served at `/google4e10fe4848c12ad9.html`. It supports Google Search Console’s HTML-file method in addition to the existing metadata tag. Keep the file published after verification. A successful local route check does not establish that Netlify has deployed it; check the public URL before clicking Verify.
+The original owner-uploaded Google file is stored unchanged at `public/googlefaa4af9a2313f96b.html` and served at `/googlefaa4af9a2313f96b.html`. It supports Google Search Console’s HTML-file method in addition to the existing metadata tag. Keep the file published after verification. A successful local route check does not establish that Netlify has deployed it; check the public URL before clicking Verify.
 
 ## Optional verification configuration
 

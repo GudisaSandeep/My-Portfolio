@@ -31,14 +31,14 @@ Production pages should be publicly reachable and have one canonical URL each. T
 
 ### HTML file method — configured for the owner’s uploaded file
 
-The exact file supplied by Google is committed as `public/google4e10fe4848c12ad9.html`. After Netlify publishes the latest commit, open:
+The exact file supplied by Google is committed as `public/googlefaa4af9a2313f96b.html`. After Netlify publishes the latest commit, open:
 
-https://sandeepgudisa.netlify.app/google4e10fe4848c12ad9.html
+https://sandeepgudisa.netlify.app/googlefaa4af9a2313f96b.html
 
 It should return HTTP 200 with this plain-text content, rather than the homepage or a 404 page:
 
 ```text
-google-site-verification: google4e10fe4848c12ad9.html
+google-site-verification: googlefaa4af9a2313f96b.html
 ```
 
 Then select **Verify** inside Google Search Console’s **HTML file** verification option. Keep the file published after verification succeeds. The HTML-tag method below remains available as a separate supported option.
