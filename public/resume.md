@@ -1,11 +1,11 @@
  SANDEEP GUDISA
-Vijayawada, India | +91 6300050907 | LinkedIn | GitHub | Portfolio
+Mumbai, India | LinkedIn | GitHub | Portfolio
 SUMMARY
-Generative AI Engineer with proven, production-level experience building AI systems. Grand Finalist and 2nd Place winner
+AI Engineer with proven, production-level experience building AI systems. Grand Finalist and 2nd Place winner
 at Smart India Hackathon 2024 (1,500+ competing teams). Founder-engineer of MonoSid, a live AI therapy SaaS platform
 powered by GPT-4. Specialises in Agentic Workflows, Retrieval-Augmented Generation (RAG), and full-stack AI product
 development using LangChain, OpenAI API, and FastAPI. Two internship credentials including Microsoft x AICTE.
-Seeking a full-time Generative AI / AI Engineer role from mid-2026.
+Currently a Software Development Engineer at Vector and part-time Co-Founder of WhiteseaLabs.
 EDUCATION
 B.Tech. in Computer Science (AI & ML) April 2026
 Andhra Loyola Institute of Engineering and Technology Vijayawada, India
@@ -20,6 +20,18 @@ Deployment & Cloud: Docker, Azure AI, Vercel, Git, Github, CI/CD Pipelines.
 Data & Databases: Vector Databases (Pinecone, ChromaDB), SQL, Embeddings.
 Languages: Python, JavaScript, C.
 EXPERIENCE
+VECTOR | Oct 2026 – Present
+Software Development Engineer | Full-time
+
+WHITESEALABS | Oct 2026 – Present
+Co-Founder | Part-time
+IT services company.
+
+FIXYT — Chrome Extension / Infinite Workspace | Started Nov 2025
+Built & Launched | Completed
+• Architected and launched a visual tab-management platform with an infinite canvas.
+• Built TabFlow browser workflows with multiple workspaces and session restore.
+
 MyTeGEN EDUCATIONAL SERVICES PVT LTD [Certificate] [Project] Dec 2025 – April 2026
 Generative AI Intern
 Privacy-first AI browser automation · Chrome Extensions · Local LLMs · Node.js

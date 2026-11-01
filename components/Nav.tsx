@@ -1,40 +1,56 @@
-import Image from 'next/image'
-import { IconArrow } from './Icons'
+"use client";
+import { useState } from "react";
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
   return (
-    <nav className="nav" role="navigation" aria-label="Main navigation">
-      <div className="nav-inner">
-        {/* Logo */}
-        <a href="#home" className="nav-logo" aria-label="Sandeep Gudisa home">
-          <Image
-            src="/sandeep_hero_main.png"
-            alt="Sandeep logo"
-            width={34}
-            height={34}
-            className="nav-logo-avatar"
-          />
-          <span className="nav-logo-name">Sandeep</span>
-          <span className="nav-logo-dot" aria-hidden="true" />
+    <header className="nav">
+      <div className="container nav-inner">
+        <a
+          className="wordmark"
+          href="#home"
+          onClick={() => setOpen(false)}
+          aria-label="Sandeep Gudisa home"
+        >
+          <span className="monogram">
+            sg<span>↗</span>
+          </span>
+          <span>
+            Sandeep Gudisa
+            <span className="wordmark-role">AI ENGINEER & BUILDER</span>
+          </span>
         </a>
-
-        {/* Links */}
-        <ul className="nav-links" role="list">
-          <li><a href="#home" className="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contributions">Contributions</a></li>
-        </ul>
-
-        {/* Actions */}
-        <div className="nav-actions">
-          <a href="#contact" className="btn-contact">
-            Contact Me <IconArrow />
+        <button
+          className="menu-toggle"
+          aria-expanded={open}
+          aria-controls="main-navigation"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? "Close −" : "Menu +"}
+        </button>
+        <nav
+          id="main-navigation"
+          className={`nav-links${open ? " is-open" : ""}`}
+          aria-label="Main navigation"
+        >
+          <a href="#projects" onClick={() => setOpen(false)}>
+            Selected work
           </a>
-        </div>
+          <a href="#experience" onClick={() => setOpen(false)}>
+            Experience
+          </a>
+          <a href="#about" onClick={() => setOpen(false)}>
+            About
+          </a>
+          <a
+            className="nav-contact"
+            href="#contact"
+            onClick={() => setOpen(false)}
+          >
+            Let’s talk <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
       </div>
-    </nav>
-  )
+    </header>
+  );
 }

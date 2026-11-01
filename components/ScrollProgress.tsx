@@ -1,55 +1,20 @@
-'use client'
-import { useEffect, useState } from 'react'
-
+"use client";
+import { useEffect, useRef } from "react";
 export default function ScrollProgress() {
-  const [scrollProgress, setScrollProgress] = useState(0)
-
+  const bar = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-      if (totalHeight > 0) {
-        const currentProgress = (window.scrollY / totalHeight) * 100
-        setScrollProgress(currentProgress)
-      }
-    }
-
-    // Scroll reveal observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const hiddenElements = document.querySelectorAll('.reveal-on-scroll')
-    hiddenElements.forEach((el) => observer.observe(el))
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    const update = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar.current)
+        bar.current.style.transform = `scaleX(${height > 0 ? Math.min(1, Math.max(0, window.scrollY / height)) : 0})`;
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      observer.disconnect()
-    }
-  }, [])
-
-  return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '3px',
-        background: 'linear-gradient(90deg, #5b21b6 0%, #7c3aed 50%, #38bdf8 100%)',
-        zIndex: 9999,
-        width: `${scrollProgress}%`,
-        transition: 'width 0.1s ease-out',
-        boxShadow: '0 0 10px rgba(124, 58, 237, 0.6)',
-      }}
-    />
-  )
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+  return <div ref={bar} className="scroll-progress" aria-hidden="true" />;
 }

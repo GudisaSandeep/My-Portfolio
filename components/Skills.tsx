@@ -1,126 +1,106 @@
-import {
-  LogoPython,
-  LogoPyTorch,
-  LogoTensorFlow,
-  LogoOpenCV,
-  LogoDocker,
-  LogoReact,
-  LogoNextjs,
-  LogoTypeScript,
-  LogoOpenAI,
-  LogoPinecone,
-  LogoPostgres,
-  LogoFastAPI,
-  LogoTailwind,
-  LogoChrome,
-  LogoThreeJS,
-  LogoMCP,
-  LogoGit,
-} from './TechLogos'
-
-const skillCategories = [
+const capabilities = [
   {
-    title: 'Generative AI & Agents',
-    badge: 'AI Engineer Core',
-    badgeColor: '#5b21b6',
-    skills: [
-      { name: 'MCP (Model Context Protocol)', icon: <LogoMCP /> },
-      { name: 'LangChain & LlamaIndex', icon: <LogoOpenAI /> },
-      { name: 'CrewAI & AutoGen Frameworks', icon: <LogoMCP /> },
-      { name: 'LLM APIs (GPT-4, Gemini, Claude)', icon: <LogoOpenAI /> },
-      { name: 'Autonomous Browser Agents', icon: <LogoChrome /> },
-      { name: 'RAG & Hybrid Search', icon: <LogoPinecone /> },
-      { name: 'Prompt Engineering & Tools', icon: <LogoOpenAI /> },
-    ],
+    title: "Agent systems",
+    text: "Connecting reasoning with action. Agents that use tools, navigate browsers, and work through multi-step tasks.",
+    tools: "MCP · LangChain · CrewAI · AutoGen",
+    type: "agent",
   },
   {
-    title: 'ML & Computer Vision',
-    badge: 'ML Engineer Core',
-    badgeColor: '#0284c7',
-    skills: [
-      { name: 'PyTorch & TensorFlow', icon: <LogoPyTorch /> },
-      { name: 'Computer Vision (OpenCV, YOLO)', icon: <LogoOpenCV /> },
-      { name: 'Model Fine-Tuning (LoRA, PEFT)', icon: <LogoPyTorch /> },
-      { name: 'Quantization (vLLM, GGUF, ONNX)', icon: <LogoTensorFlow /> },
-      { name: 'Head Pose & Drowsiness Tracking', icon: <LogoOpenCV /> },
-      { name: 'Scikit-Learn, NumPy & Pandas', icon: <LogoPython /> },
-    ],
+    title: "Retrieval & language",
+    text: "Connecting the right context to the right question through semantic search and retrieval-augmented generation.",
+    tools: "Pinecone · ChromaDB · Embeddings · LLM APIs",
+    type: "retrieval",
   },
   {
-    title: 'Vector DBs & Search',
-    badge: 'Retrieval & RAG',
-    badgeColor: '#7c3aed',
-    skills: [
-      { name: 'Pinecone Vector Search', icon: <LogoPinecone /> },
-      { name: 'ChromaDB & Qdrant', icon: <LogoPinecone /> },
-      { name: 'Embeddings & Semantic Search', icon: <LogoOpenAI /> },
-      { name: 'Vector Index Tuning & Hybrid RAG', icon: <LogoPinecone /> },
-      { name: 'PostgreSQL & pgvector', icon: <LogoPostgres /> },
-    ],
+    title: "Applied intelligence",
+    text: "Turning visual signals into useful insights with computer vision, model adaptation, and real-time inference.",
+    tools: "Python · OpenCV · PyTorch · TensorFlow",
+    type: "vision",
   },
   {
-    title: 'AI Backend & Systems',
-    badge: 'Engineering',
-    badgeColor: '#0f172a',
-    skills: [
-      { name: 'Python (AsyncIO, FastMCP)', icon: <LogoPython /> },
-      { name: 'FastAPI & Flask REST APIs', icon: <LogoFastAPI /> },
-      { name: 'Node.js & TypeScript', icon: <LogoTypeScript /> },
-      { name: 'Docker & Containerization', icon: <LogoDocker /> },
-      { name: 'Git, GitHub & CI/CD Pipelines', icon: <LogoGit /> },
-    ],
+    title: "Product engineering",
+    text: "Bringing the whole system together, from APIs and browser extensions to considered web experiences.",
+    tools: "TypeScript · React · FastAPI · Docker",
+    type: "product",
   },
-  {
-    title: 'AI UI & Frontend',
-    badge: 'Product & Web',
-    badgeColor: '#16a34a',
-    skills: [
-      { name: 'React & Next.js App Router', icon: <LogoReact /> },
-      { name: 'Three.js (3D Web Avatars)', icon: <LogoThreeJS /> },
-      { name: 'Chrome Extensions (Manifest V3)', icon: <LogoChrome /> },
-      { name: 'Tailwind CSS Design Systems', icon: <LogoTailwind /> },
-      { name: 'WebSockets & Voice/Streaming UI', icon: <LogoNextjs /> },
-    ],
-  },
-]
-
+];
+function CapabilityGlyph({ type }: { type: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 70"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      aria-hidden="true"
+    >
+      {type === "agent" ? (
+        <>
+          <path d="M15 35h30m30 0h30M60 10v12m0 26v12" />
+          <path d="m60 20 16 15-16 15-16-15Z" />
+          <circle cx="15" cy="35" r="5" />
+          <circle cx="105" cy="35" r="5" />
+          <circle cx="60" cy="35" r="4" />
+        </>
+      ) : type === "retrieval" ? (
+        <>
+          <rect x="15" y="17" width="28" height="36" rx="2" />
+          <path d="M22 27h14m-14 8h14m-14 8h8M43 35h30" />
+          <circle cx="88" cy="32" r="14" />
+          <path d="m98 42 12 12" />
+        </>
+      ) : type === "vision" ? (
+        <>
+          <path d="M10 35s20-24 50-24 50 24 50 24-20 24-50 24-50-24-50-24Z" />
+          <circle cx="60" cy="35" r="14" />
+          <circle cx="60" cy="35" r="5" />
+          <path d="M60 3v13m0 38v13" />
+        </>
+      ) : (
+        <>
+          <rect x="15" y="12" width="90" height="48" rx="3" />
+          <path d="M15 23h90M48 32l-8 9 8 9m24-18 8 9-8 9m-8-21-8 24" />
+          <circle cx="23" cy="18" r="1" />
+          <circle cx="29" cy="18" r="1" />
+        </>
+      )}
+    </svg>
+  );
+}
 export default function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section capabilities-section">
       <div className="container">
-        <div className="label-tag">Technical Matrix</div>
-        <h2 className="section-heading" style={{ marginTop: '0.5rem' }}>
-          Skills &amp; <span>Capabilities</span>
-        </h2>
-
-        {/* Skills Unboxed Grid */}
-        <div className="skills-board-grid">
-          {skillCategories.map((cat) => (
-            <div key={cat.title} className="skills-board-card reveal-on-scroll">
-              <div className="skills-board-header">
-                <h3 className="skills-board-title">{cat.title}</h3>
-                <span
-                  className="skills-board-badge"
-                  style={{ background: cat.badgeColor }}
-                >
-                  {cat.badge}
-                </span>
+        <div className="section-topline">
+          <span className="eyebrow">03 / HOW I BUILD</span>
+          <span className="section-aside">
+            THE RIGHT TOOLS. A CLEAR PURPOSE.
+          </span>
+        </div>
+        <div className="section-header">
+          <h2>
+            Different layers.
+            <br />
+            One connected system<span className="blue">.</span>
+          </h2>
+          <p>
+            I work across the AI stack to connect intelligent models with
+            products people can actually use.
+          </p>
+        </div>
+        <div className="capabilities-grid">
+          {capabilities.map((c, i) => (
+            <article className="capability" key={c.title}>
+              <div className="capability-top">
+                <span>0{i + 1}</span>
+                <CapabilityGlyph type={c.type} />
               </div>
-
-              <ul className="skills-board-list">
-                {cat.skills.map((skill) => (
-                  <li key={skill.name} className="skills-board-item">
-                    <div className="skills-brand-icon" aria-hidden="true">
-                      {skill.icon}
-                    </div>
-                    <span>{skill.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+              <div className="capability-tools">{c.tools}</div>
+            </article>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,151 +1,76 @@
-import Image from 'next/image'
-import { IconDownload, IconArrow, IconGithub, IconLinkedin, IconMail, IconSparkle, IconInstagram, IconPhone } from './Icons'
-
+import HeroPortrait from "./HeroPortrait";
+function VectorStar() {
+  return (
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      aria-hidden="true"
+    >
+      <path d="M20 2v36M2 20h36M7.3 7.3l25.4 25.4M7.3 32.7 32.7 7.3" />
+    </svg>
+  );
+}
 export default function Hero() {
   return (
     <section id="home" className="hero-section">
-      <div className="container hero-container">
-        {/* Left Column */}
-        <div className="hero-left">
-          {/* Pill Badge */}
-          <div className="hero-pill anim">
-            <IconSparkle />
-            <span>AI ENGINEER&nbsp;&nbsp;•&nbsp;&nbsp;BUILDER&nbsp;&nbsp;•&nbsp;&nbsp;PROBLEM SOLVER</span>
-          </div>
-
-          {/* Main Name Heading */}
-          <h1 className="hero-h1 anim delay-1">
-            Hi, I&apos;m<br />
-            Gudisa <span className="hero-name-accent">Sandeep</span>
-          </h1>
-
-          {/* Subtitle / Role Tagline */}
-          <p className="hero-tagline anim delay-2">
-            <strong>AI Engineer</strong> building Agentic AI systems.<br />
-            RAG applications and real-world AI products.
-          </p>
-
-          {/* Description Paragraph */}
-          <p className="hero-desc anim delay-2">
-            I combine Agentic AI, LLMs and MCPs to build intelligent solutions that solve real-world problems.
-          </p>
-
-          {/* Technology Chips */}
-          <div className="hero-chips anim delay-2">
-            <span className="hero-chip">Generative AI</span>
-            <span className="hero-chip">RAG</span>
-            <span className="hero-chip">Agentic Workflows</span>
-            <span className="hero-chip">Computer Vision</span>
-            <span className="hero-chip">Full Stack</span>
-            <span className="hero-chip">MLOps</span>
-            <span className="hero-chip">Harness</span>
-            <span className="hero-chip">Claude Code CLI</span>
-            <span className="hero-chip">Codex</span>
-            <span className="hero-chip">MCP</span>
-            <span className="hero-chip">A2A</span>
-            <span className="hero-chip">LangGraph</span>
-            <span className="hero-chip">Langchain</span>
-            <span className="hero-chip">HuggingFace</span>
-            <span className="hero-chip">TensorFlow</span>
-            <span className="hero-chip">PyTorch</span>
-
-          </div>
-
-          {/* Action Buttons */}
-          <div className="hero-ctas anim delay-3">
-            <a
-              href="/resume.md"
-              className="btn-hero-primary"
-              download
-              aria-label="Download Resume"
-            >
-              <IconDownload />
-              <span>Download Resume</span>
-            </a>
-            <a href="#projects" className="btn-hero-outline" aria-label="View my work">
-              <span>View My Work</span>
-              <IconArrow />
-            </a>
-            <a
-              href="https://github.com/GudisaSandeep"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-icon-btn"
-              aria-label="GitHub profile"
-            >
-              <IconGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sandeepgudisa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-icon-btn"
-              aria-label="LinkedIn profile"
-            >
-              <IconLinkedin />
-            </a>
-            <a
-              href="https://www.instagram.com/gudisasandeep/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-icon-btn"
-              aria-label="Instagram profile"
-            >
-              <IconInstagram />
-            </a>
-            <a
-              href="mailto:sandeep.gudisa7@gmail.com"
-              className="hero-icon-btn"
-              aria-label="Send email"
-            >
-              <IconMail />
-            </a>
-            <a
-              href="tel:+916300050907"
-              className="hero-icon-btn"
-              aria-label="Call Sandeep"
-            >
-              <IconPhone />
-            </a>
-          </div>
+      <div className="container">
+        <div className="hero-topline">
+          <span>PORTFOLIO / SANDEEP GUDISA</span>
+          <span>MUMBAI, INDIA · UTC +05:30</span>
         </div>
-
-        {/* Right Column — Photo */}
-        <div className="hero-right anim delay-2">
-          <div className="hero-card-backdrop">
-            {/* Profile Photo */}
-            <div className="hero-photo-wrapper">
-              <Image
-                src="/sandeep_hero_main.png"
-                alt="Sandeep Gudisa — Generative AI Engineer"
-                width={800}
-                height={800}
-                priority
-                className="hero-photo-img"
-              />
-            </div>
-
-            {/* Floating "Open to Work" Card */}
-            <div className="hero-open-work-card">
-              <div className="open-work-header">
-                <span className="open-work-dot" aria-hidden="true" />
-                <span className="open-work-title">Open to Work</span>
-              </div>
-              <p className="open-work-subtitle">AI Engineer Roles</p>
-              <div className="open-work-divider" />
-              <a
-                href="https://www.linkedin.com/in/sandeepgudisa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="open-work-link"
-              >
-                <span>Let&apos;s Connect</span>
-                <IconArrow />
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <h1 className="hero-growth-headline">
+              <span>Building a path</span> <span>for sustained,</span>{" "}
+              <span className="hero-accent">limitless growth.</span>
+            </h1>
+            <p className="hero-description">
+              I’m Sandeep. I build AI agents, retrieval systems, and digital
+              products that turn complex problems into useful experiences.
+            </p>
+            <div className="hero-actions">
+              <a href="#projects" className="button button-primary">
+                Explore my work <span aria-hidden="true">↘</span>
+              </a>
+              <a href="/resume.md" download className="text-link">
+                Download résumé <span aria-hidden="true">↓</span>
               </a>
             </div>
+            <div className="hero-specialties">
+              <span>AGENTIC AI</span>
+              <span>RAG & LLMs</span>
+              <span>PRODUCT ENGINEERING</span>
+            </div>
           </div>
+          <HeroPortrait />
+        </div>
+        <div className="hero-bottom">
+          <p>From the first idea to the final interaction.</p>
+          <a href="#achievements">
+            SCROLL TO EXPLORE <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+      <div className="expertise-strip">
+        <div className="container">
+          <span>INTELLIGENCE, APPLIED.</span>
+          <span>AI agents</span>
+          <span className="strip-star" aria-hidden="true">
+            <VectorStar />
+          </span>
+          <span>Browser automation</span>
+          <span className="strip-star" aria-hidden="true">
+            <VectorStar />
+          </span>
+          <span>Retrieval systems</span>
+          <span className="strip-star" aria-hidden="true">
+            <VectorStar />
+          </span>
+          <span>Real-world products</span>
         </div>
       </div>
     </section>
-  )
+  );
 }

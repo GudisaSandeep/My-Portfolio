@@ -1,111 +1,68 @@
-import {
-  IconGrad, IconBriefcase, IconCode, IconTrophy,
-  IconPin, IconTarget, IconBrain, IconRocket
-} from './Icons'
-
-const statCards = [
-  {
-    icon: <IconGrad />,
-    label: 'Education',
-    value: 'B.Tech CSE (AI & ML)',
-    desc: 'Andhra Loyola Institute of Engineering and Technology',
-    link: 'April 2026',
-  },
-  {
-    icon: <IconBriefcase />,
-    label: 'Experience',
-    value: '1+ Years',
-    desc: "Built several AI products",
-    link: null,
-  },
-  {
-    icon: <IconCode />,
-    label: 'Projects',
-    value: '6 Major Projects',
-    link: null,
-  },
-  {
-    icon: <IconTrophy />,
-    label: 'Achievements',
-    value: 'Multiple Awards',
-    link: null,
-  },
-  {
-    icon: <IconPin />,
-    label: 'Location',
-    value: 'Bangalore, India',
-    link: null,
-  },
-  {
-    icon: <IconTarget />,
-    label: 'Current Focus',
-    value: 'Agentic AI & RAG',
-    link: null,
-  },
-]
-
-const traits = [
-  {
-    icon: <IconBrain />,
-    title: 'Problem Solver',
-    desc: 'I love breaking down complex problems into elegant AI-powered solutions.',
-  },
-  {
-    icon: <IconRocket />,
-    title: 'Builder',
-    desc: 'From ideation to deployment, I enjoy building end-to-end AI products that create real impact.',
-  },
-]
-
+import Image from "next/image";
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section about-section">
       <div className="container">
+        <div className="section-topline">
+          <span className="eyebrow">04 / THE PERSON BEHIND THE WORK</span>
+          <span className="section-aside">CURIOUS BY DEFAULT</span>
+        </div>
         <div className="about-grid">
-          {/* Left */}
-          <div>
-            <div className="label-tag">About Me</div>
-            <h2 className="section-heading" style={{ marginTop: '0.75rem' }}>
-              I build AI systems<br />
-              that solve <span>real-world</span><br />
-              problems.
-            </h2>
-
-            <p className="about-body-text">
-              I&apos;m a Computer Science (AI &amp; ML) student and AI Engineer
-              passionate about building intelligent systems.
-            </p>
-            {traits.map((t) => (
-              <div key={t.title} className="about-trait reveal-on-scroll">
-                <div className="trait-icon" aria-hidden="true">{t.icon}</div>
-                <div>
-                  <div className="trait-title">{t.title}</div>
-                  <div className="trait-desc">{t.desc}</div>
-                </div>
-              </div>
-            ))}
+          <div className="about-portrait">
+            <div className="portrait-registration" aria-hidden="true">
+              +
+            </div>
+            <Image
+              src="/sandeep_hero_main.png"
+              alt="Sandeep Gudisa"
+              width={650}
+              height={700}
+              sizes="(max-width: 700px) 90vw, 35vw"
+            />
+            <div className="portrait-caption">
+              <span>SANDEEP GUDISA</span>
+              <span>MUMBAI, IN ↗</span>
+            </div>
           </div>
-
-          {/* Right — stat cards grid */}
-          <div className="about-right">
-            <div className="about-stats-grid">
-              {statCards.map((card) => (
-                <div key={card.label} className="stat-card reveal-on-scroll">
-                  <div className="stat-card-header">
-                    <div className="stat-card-icon" aria-hidden="true">{card.icon}</div>
-                    <div className="stat-card-label">{card.label}</div>
-                  </div>
-                  <div className="stat-card-value tabular-num">{card.value}</div>
-                  <div className="stat-card-desc">{card.desc}</div>
-                  {card.link && (
-                    <span className="stat-card-link">{card.link}</span>
-                  )}
-                </div>
-              ))}
+          <div className="about-copy">
+            <h2>
+              An engineer’s mind.
+              <br />A builder’s instinct<span className="blue">.</span>
+            </h2>
+            <p className="about-lead">
+              I enjoy the space between “what if” and “it works.”
+            </p>
+            <p>
+              I’m an AI engineer focused on agentic systems, retrieval, and
+              practical AI products. My work spans autonomous browser tools,
+              classroom computer vision, and conversational experiences.
+            </p>
+            <p>
+              I like breaking complex problems into clear, usable systems—and
+              staying close to the product from the first prototype to the final
+              interaction.
+            </p>
+            <div className="education">
+              <span className="eyebrow">EDUCATION / 2026</span>
+              <h3>B.Tech · Computer Science (AI & ML)</h3>
+              <p>Andhra Loyola Institute of Engineering and Technology</p>
+            </div>
+            <div className="about-links">
+              <a
+                className="text-link"
+                href="https://www.linkedin.com/in/sandeepgudisa/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+              <a className="text-link" href="/resume.md" download>
+                My résumé ↓
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
