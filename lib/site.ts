@@ -1,5 +1,5 @@
 const productionUrl = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL || "https://sandeepgudisa.vercel.app/",
+  process.env.NEXT_PUBLIC_SITE_URL || "https://sandeepgudisa.netlify.app/",
 );
 if (
   !["https:", "http:"].includes(productionUrl.protocol) ||
@@ -15,7 +15,8 @@ if (
 export const siteUrl = productionUrl.origin;
 export const allowIndexing =
   process.env.SITE_NOINDEX !== "true" &&
-  !["preview", "development"].includes(process.env.VERCEL_ENV || "");
+  !["preview", "development"].includes(process.env.VERCEL_ENV || "") &&
+  (!process.env.CONTEXT || process.env.CONTEXT === "production");
 export const absoluteUrl = (path: string) =>
   new URL(path, `${siteUrl}/`).toString();
 

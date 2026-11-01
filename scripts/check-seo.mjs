@@ -5,11 +5,12 @@ import { join } from "node:path";
 // Audit the actual prerendered output, including content available without JavaScript.
 const output = join(process.cwd(), ".next/server/app");
 const origin = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL || "https://sandeepgudisa.vercel.app/",
+  process.env.NEXT_PUBLIC_SITE_URL || "https://sandeepgudisa.netlify.app/",
 ).origin;
 const indexable =
   process.env.SITE_NOINDEX !== "true" &&
-  !["preview", "development"].includes(process.env.VERCEL_ENV || "");
+  !["preview", "development"].includes(process.env.VERCEL_ENV || "") &&
+  (!process.env.CONTEXT || process.env.CONTEXT === "production");
 const routes = [
   { path: "/", file: "index.html" },
   { path: "/about", file: "about.html" },

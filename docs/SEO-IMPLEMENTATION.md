@@ -5,7 +5,7 @@
 - **Name:** Sandeep Gudisa; alternate professional form: Gudisa Sandeep.
 - **Role:** AI engineer; founder of Fixyt; co-founder of WhiteSea Labs; Software Development Engineer at Vector.
 - **Location:** Mumbai, India.
-- **Canonical origin:** https://sandeepgudisa.vercel.app/ — explicitly confirmed by the owner.
+- **Canonical origin:** https://sandeepgudisa.netlify.app/ — explicitly confirmed by the owner.
 - **Founder relationship:** Fixyt founder status was explicitly confirmed by the owner. No founding date, legal entity details, adoption statistics, or funding information are inferred.
 
 ## Implemented routes
@@ -39,9 +39,9 @@ The Fixyt page includes a SoftwareApplication description without fabricated off
 
 ## Environment settings
 
-`NEXT_PUBLIC_SITE_URL` may override the canonical origin when intentionally moving to another production domain. It must be an HTTP(S) origin without a path, query string, or fragment. The confirmed Vercel address is the default. Change this value before building a deployment on a replacement canonical domain and plan redirects from the old address.
+`NEXT_PUBLIC_SITE_URL` may override the canonical origin when intentionally moving to another production domain. It must be an HTTP(S) origin without a path, query string, or fragment. The confirmed Netlify address is the default. Change this value before building a deployment on a replacement canonical domain and plan redirects from the old address.
 
-`SITE_NOINDEX=true` disables index/follow metadata and returns disallow rules and an empty sitemap. Vercel's `VERCEL_ENV=preview` or `VERCEL_ENV=development` applies the same behavior automatically. Deployments outside Vercel must set `SITE_NOINDEX=true` on public staging environments. Indexing settings are evaluated during the build; rebuild after changes.
+`SITE_NOINDEX=true` disables index/follow metadata and returns disallow rules and an empty sitemap. Netlify builds with a non-production `CONTEXT` apply the same behavior automatically, including deploy previews, branch deploys, and local development. Vercel’s `VERCEL_ENV=preview` or `VERCEL_ENV=development` remains protected for legacy deployments. Other public staging environments should set `SITE_NOINDEX=true`. Indexing settings are evaluated during the build; rebuild after changes.
 
 Public robots rules allow search crawlers, including search-based AI crawlers. No training-specific preference has been set. Robots directives cannot override a CDN/WAF block and do not guarantee discovery or indexing. They also are not access controls for confidential pages.
 
@@ -72,7 +72,7 @@ Follow [SEO-MANUAL-CHECKLIST.md](SEO-MANUAL-CHECKLIST.md) for the step-by-step d
 
 - Deploy the new build to the confirmed canonical site. A Git push by itself does not establish a successful hosting deployment.
 - Verify ownership in Google Search Console and Bing Webmaster Tools.
-- Submit `https://sandeepgudisa.vercel.app/sitemap.xml`.
+- Submit `https://sandeepgudisa.netlify.app/sitemap.xml`.
 - Inspect the live homepage, biography, and Fixyt page with URL Inspection and request indexing when appropriate.
 - Check that production hosting and firewall settings allow intended crawlers.
 - Update older public profile links and locations where needed.
@@ -86,3 +86,12 @@ No account verification, search-engine submission, third-party profile edits, or
 - [Google: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features): foundational SEO also applies to AI search features.
 - [Google: profile-page structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page): descriptive profile markup and requirements.
 - [OpenAI crawler documentation](https://developers.openai.com/api/docs/bots): search and training crawler controls are distinct.
+
+
+## Netlify domain migration
+
+The owner changed the canonical production origin to `https://sandeepgudisa.netlify.app/`. All runtime SEO output and the audit default now use that address. Check Netlify’s environment settings for a stale `NEXT_PUBLIC_SITE_URL` override, set it to the new origin, and redeploy. Keep `SITE_NOINDEX` unset or `false` in production.
+
+`next.config.ts` includes a permanent, host-specific redirect from the previous `sandeepgudisa.vercel.app` host to the same path on Netlify. This takes effect on the old host only if that deployment is rebuilt from this code; it does not configure or update a remote hosting account automatically. The Netlify host and local development do not match the redirect rule.
+
+Verify the new property in Search Console and Bing, submit the new sitemap, and update controlled profile links. Preserve the old property to monitor the migration. Use Google’s Change of Address workflow if it is offered and appropriate for the verified old/new properties.

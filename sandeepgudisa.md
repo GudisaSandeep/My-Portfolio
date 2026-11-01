@@ -99,7 +99,7 @@ Use the same name order in primary headings, metadata, biographies, and article 
 
 The supplied `threads.com` address is a Threads profile, even though it was introduced as Instagram. An Instagram link exists in the portfolio, but the supplied Threads URL must not be silently relabelled as Instagram. The Threads tracking query has been removed from its reference URL.
 
-The owner confirmed [sandeepgudisa.vercel.app](https://sandeepgudisa.vercel.app/) as the production canonical address during implementation. A cached GitHub profile lists an older Netlify address that should be updated separately. Canonical URLs, identity identifiers, and the sitemap now use the confirmed Vercel address. [U4]
+The owner confirmed [sandeepgudisa.netlify.app](https://sandeepgudisa.netlify.app/) as the current production canonical address, replacing the previous Vercel deployment. A cached GitHub profile lists a different, older Netlify address that should be updated separately. Canonical URLs, identity identifiers, and the sitemap use the current Netlify address. [U4, U5]
 
 ## Professional positioning
 
@@ -668,10 +668,10 @@ The portfolio now implements a consistent identity graph in `lib/identity.ts`, s
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://sandeepgudisa.vercel.app/#person",
+      "@id": "https://sandeepgudisa.netlify.app/#person",
       "name": "Sandeep Gudisa",
       "alternateName": "Gudisa Sandeep",
-      "url": "https://sandeepgudisa.vercel.app/about",
+      "url": "https://sandeepgudisa.netlify.app/about",
       "description": "AI engineer in Mumbai, founder of Fixyt, co-founder of WhiteSea Labs, and Software Development Engineer at Vector.",
       "sameAs": [
         "https://www.linkedin.com/in/sandeepgudisa/",
@@ -685,7 +685,7 @@ The portfolio now implements a consistent identity graph in `lib/identity.ts`, s
       "name": "Fixyt",
       "url": "https://fixyt.in/",
       "founder": {
-        "@id": "https://sandeepgudisa.vercel.app/#person"
+        "@id": "https://sandeepgudisa.netlify.app/#person"
       }
     },
     {
@@ -694,7 +694,7 @@ The portfolio now implements a consistent identity graph in `lib/identity.ts`, s
       "name": "WhiteSea Labs",
       "url": "https://whitesealabs.com/",
       "founder": {
-        "@id": "https://sandeepgudisa.vercel.app/#person"
+        "@id": "https://sandeepgudisa.netlify.app/#person"
       }
     }
   ]
@@ -756,7 +756,7 @@ This register should remain with editorial material when creating new content. T
 | --- | --- | --- |
 | Current location | User says Mumbai; indexed LinkedIn shows Bengaluru; older GitHub snapshot shows Vijayawada | Use Mumbai in owned current biography; update older profiles separately |
 | LinkedIn URL | Current owner-supplied URL differs from a cached GitHub social link | Use the supplied `sandeepgudisa` URL; reconcile old link |
-| Portfolio domain | Owner confirmed https://sandeepgudisa.vercel.app/ [U4] | Canonical metadata, sitemap, and person identifier use this origin; reconcile old profiles separately |
+| Portfolio domain | Owner confirmed https://sandeepgudisa.netlify.app/ [U5] | Canonical metadata, sitemap, and person identifier use this origin; reconcile old profiles separately |
 | Vector organization | Role and dates user-confirmed; company URL absent | Retain exact company name without assigning a similarly named legal entity |
 | WhiteSea Labs relationship | Owner confirms co-founder and part-time start; indexed profile associates company | Use owner-confirmed role; obtain direct company biography when available |
 | WhiteSea Labs legal details | Not established | Do not infer incorporation, registration, funding, clients, or size |
@@ -781,7 +781,7 @@ This register should remain with editorial material when creating new content. T
 
 ### Public-copy release checklist
 
-- [x] Confirm the final production portfolio domain: https://sandeepgudisa.vercel.app/.
+- [x] Confirm the final production portfolio domain: https://sandeepgudisa.netlify.app/.
 - [x] Record Sandeep as founder of Fixyt in visible copy and structured data, based on owner confirmation.
 - [ ] Confirm the exact Vector company identity.
 - [ ] Reconcile MyTeGEN, Microsoft-related, and MonoSid dates.
@@ -807,7 +807,9 @@ This register should remain with editorial material when creating new content. T
 
 **[P2] Downloadable résumé reviewed locally.** `public/resume.md` in the same repository. Source of detailed historical descriptions and several unresolved date and credential discrepancies.
 
-**[U4] Latest owner confirmation during SEO/AEO implementation, 1 November 2026.** Sandeep explicitly identified himself as the founder of Fixyt and confirmed https://sandeepgudisa.vercel.app/ as the production canonical domain. These updates supersede earlier uncertainty about the founder relationship and domain. No incorporation date, ownership percentage, or investment status was supplied.
+**[U4] Latest owner confirmation during SEO/AEO implementation, 1 November 2026.** Sandeep explicitly identified himself as the founder of Fixyt and initially confirmed the previous Vercel deployment as the production canonical domain. The current Netlify domain is recorded in [U5]. These updates supersede earlier uncertainty about the founder relationship and domain. No incorporation date, ownership percentage, or investment status was supplied.
+
+**[U5] Owner domain update, 1 November 2026.** Sandeep changed the production address to https://sandeepgudisa.netlify.app/. This supersedes the earlier Vercel domain for canonical URLs, identity references, social metadata, and the sitemap.
 
 ### Public professional profiles and selected writing
 

@@ -1,38 +1,38 @@
 # Manual launch checklist: Sandeep Gudisa’s portfolio
 
-The code implements the search and answer-engine foundation. Complete the following account and hosting steps after deploying it. Canonical production origin: **https://sandeepgudisa.vercel.app/**.
+The code implements the search and answer-engine foundation. Complete the following account and hosting steps after deploying it. Canonical production origin: **https://sandeepgudisa.netlify.app/**.
 
 ## 1. Deploy the latest GitHub commit
 
-Deploy the `main` branch of `GudisaSandeep/My-Portfolio` to the existing Vercel project. Set:
+Deploy the `main` branch of `GudisaSandeep/My-Portfolio` to the existing Netlify project. Set:
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://sandeepgudisa.vercel.app/
+NEXT_PUBLIC_SITE_URL=https://sandeepgudisa.netlify.app/
 ```
 
-Keep `SITE_NOINDEX` unset or `false` in **Production**. Preview builds are automatically set to noindex when Vercel supplies `VERCEL_ENV=preview`. An intentionally private staging environment outside Vercel should set `SITE_NOINDEX=true`.
+Keep `SITE_NOINDEX` unset or `false` in **Production**. Netlify deploy previews, branch deploys, preview servers, and development builds are automatically set to noindex when `CONTEXT` is not `production`. An intentionally private staging environment on another platform should set `SITE_NOINDEX=true`.
 
-These settings affect static generation, so redeploy after changing them. GitHub push success alone does not verify that Vercel has built or published the new version.
+These settings affect static generation, so redeploy after changing them. GitHub push success alone does not verify that Netlify has built or published the new version.
 
 ## 2. Check the public deployment
 
-Open these URLs while signed out of Vercel:
+Open these URLs while signed out of Netlify:
 
-- [Homepage](https://sandeepgudisa.vercel.app/)
-- [Detailed biography](https://sandeepgudisa.vercel.app/about)
-- [Fixyt founder page](https://sandeepgudisa.vercel.app/projects/fixyt)
-- [Robots rules](https://sandeepgudisa.vercel.app/robots.txt)
-- [Sitemap](https://sandeepgudisa.vercel.app/sitemap.xml)
-- [Social image](https://sandeepgudisa.vercel.app/opengraph-image)
+- [Homepage](https://sandeepgudisa.netlify.app/)
+- [Detailed biography](https://sandeepgudisa.netlify.app/about)
+- [Fixyt founder page](https://sandeepgudisa.netlify.app/projects/fixyt)
+- [Robots rules](https://sandeepgudisa.netlify.app/robots.txt)
+- [Sitemap](https://sandeepgudisa.netlify.app/sitemap.xml)
+- [Social image](https://sandeepgudisa.netlify.app/opengraph-image)
 
 Production pages should be publicly reachable and have one canonical URL each. The sitemap should contain the three content pages. Robots should allow crawling and reference that sitemap. Check that hosting does not add an `X-Robots-Tag: noindex` response header or require deployment authentication.
 
 ## 3. Verify Google Search Console ownership
 
 1. Open [Google Search Console](https://search.google.com/search-console/).
-2. Add the **URL-prefix** property `https://sandeepgudisa.vercel.app/`. This suits the hosted subdomain; a DNS Domain property requires DNS control of the relevant domain.
+2. Add the **URL-prefix** property `https://sandeepgudisa.netlify.app/`. This suits the hosted subdomain; a DNS Domain property requires DNS control of the relevant domain.
 3. If using **HTML tag** verification, copy only the value of the tag’s `content` attribute.
-4. In Vercel, add a Production environment variable named `GOOGLE_SITE_VERIFICATION` with that value.
+4. In Netlify’s project environment settings, add a Production environment variable named `GOOGLE_SITE_VERIFICATION` with that value.
 5. Redeploy, then finish verification in Search Console.
 
 The code outputs the `google-site-verification` tag only when the variable is populated. An alternative supported ownership method can be used instead; do not add a fake verification value.
@@ -42,7 +42,7 @@ The code outputs the `google-site-verification` tag only when the variable is po
 In Search Console, submit:
 
 ```text
-https://sandeepgudisa.vercel.app/sitemap.xml
+https://sandeepgudisa.netlify.app/sitemap.xml
 ```
 
 Use URL Inspection on the homepage, `/about`, and `/projects/fixyt`. Run the live test, inspect the reported canonical and indexing eligibility, and request indexing where appropriate. Submission requests discovery; it does not guarantee indexing, rankings, or a particular completion time.
@@ -51,7 +51,7 @@ Use URL Inspection on the homepage, `/about`, and `/projects/fixyt`. Run the liv
 
 Open [Bing Webmaster Tools](https://www.bing.com/webmasters/). Import the verified Search Console property if offered, or use Bing’s own verification process.
 
-If using Bing’s HTML tag, copy its `content` value into the Vercel Production variable `BING_SITE_VERIFICATION`, then redeploy. The application renders this as `msvalidate.01`. Submit the same sitemap and inspect the important pages.
+If using Bing’s HTML tag, copy its `content` value into the Netlify Production variable `BING_SITE_VERIFICATION`, then redeploy. The application renders this as `msvalidate.01`. Submit the same sitemap and inspect the important pages.
 
 ## 6. Validate the live structured data and sharing preview
 
@@ -64,7 +64,7 @@ Visible questions and answers are rendered in HTML. The code does not claim FAQ 
 
 ## 7. Check crawler access and profile consistency
 
-Ensure Vercel firewall or bot-protection settings do not block intended search crawlers. The public robots rules permit them, but robots cannot override hosting restrictions. Search visibility and AI-model training permissions are separate choices; this implementation does not set a training-specific preference.
+Ensure Netlify firewall or bot-protection settings do not block intended search crawlers. The public robots rules permit them, but robots cannot override hosting restrictions. Search visibility and AI-model training permissions are separate choices; this implementation does not set a training-specific preference.
 
 Keep the name **Sandeep Gudisa**, location **Mumbai**, portfolio URL, and founder roles consistent on LinkedIn, GitHub, Threads, Fixyt, and WhiteSea Labs where you control those profiles. Link to the portfolio naturally from relevant company and product biographies. Confirm historical achievement evidence before publishing stronger recognition claims.
 
@@ -88,3 +88,12 @@ npm run check:seo
 ```
 
 `check:seo` inspects the actual `.next` production output without needing a web server. Run it with the same indexing, canonical URL, and verification environment settings used for the build. It verifies canonical URLs, sharing metadata, index policy, identity relationships, visible section and project references, server-rendered content, sitemap, robots, contact exclusions, and social-image dimensions.
+
+
+## After moving from Vercel to Netlify
+
+Replace any old `NEXT_PUBLIC_SITE_URL` override in Netlify with `https://sandeepgudisa.netlify.app/` and redeploy. Update LinkedIn, GitHub, company biographies, and other controlled links to the new address.
+
+The repository includes a permanent redirect for requests to the previous Vercel host, preserving each path. Keep the old deployment available and rebuild it from the latest code for that rule to take effect, or configure an equivalent redirect in its hosting settings. Confirm the old homepage and `/about` redirect to their matching Netlify pages. Merely deploying this code on Netlify does not change the old host.
+
+Add and verify the new URL-prefix property in Google Search Console and Bing. Submit the new sitemap, inspect the new URLs, and retain the previous property to watch the transition. Use Change of Address if the verified properties are eligible. Allow time for search engines to recrawl the old and new URLs.
