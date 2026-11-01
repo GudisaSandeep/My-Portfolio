@@ -62,6 +62,10 @@ The new pages deliberately avoid turning sourcebook research notes into factual 
 7. Validate the deployed JSON-LD with Schema.org Validator. Use Google's Rich Results Test for supported Google features; a lack of a rich result for generic Person markup is not by itself a schema error.
 8. Check preview/staging builds expose noindex metadata and disallow rules.
 
+## Google HTML-file verification
+
+The original owner-uploaded Google file is stored unchanged at `public/google4e10fe4848c12ad9.html` and served at `/google4e10fe4848c12ad9.html`. It supports Google Search Console’s HTML-file method in addition to the existing metadata tag. Keep the file published after verification. A successful local route check does not establish that Netlify has deployed it; check the public URL before clicking Verify.
+
 ## Optional verification configuration
 
 The owner-supplied Google verification value is saved in `lib/site-verification.json` and rendered by default. Optionally set `GOOGLE_SITE_VERIFICATION` to override it with the raw content value from Google’s HTML verification tag. Set `BING_SITE_VERIFICATION` to the raw content value from Bing’s tag. The variables are optional and contain public verification identifiers. Google’s saved value is rendered by default; Bing’s tag is rendered only when configured. They do not themselves verify an account; the owner must complete the corresponding webmaster workflow after redeployment. Do not put a complete HTML tag into either value.

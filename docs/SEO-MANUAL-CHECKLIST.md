@@ -29,6 +29,22 @@ Production pages should be publicly reachable and have one canonical URL each. T
 
 ## 3. Verify Google Search Console ownership
 
+### HTML file method — configured for the owner’s uploaded file
+
+The exact file supplied by Google is committed as `public/google4e10fe4848c12ad9.html`. After Netlify publishes the latest commit, open:
+
+https://sandeepgudisa.netlify.app/google4e10fe4848c12ad9.html
+
+It should return HTTP 200 with this plain-text content, rather than the homepage or a 404 page:
+
+```text
+google-site-verification: google4e10fe4848c12ad9.html
+```
+
+Then select **Verify** inside Google Search Console’s **HTML file** verification option. Keep the file published after verification succeeds. The HTML-tag method below remains available as a separate supported option.
+
+### HTML tag method
+
 1. Open [Google Search Console](https://search.google.com/search-console/).
 2. Add the **URL-prefix** property `https://sandeepgudisa.netlify.app/`. This suits the hosted subdomain; a DNS Domain property requires DNS control of the relevant domain.
 3. If using **HTML tag** verification, copy only the value of the tag’s `content` attribute.
