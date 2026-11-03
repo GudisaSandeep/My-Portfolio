@@ -37,6 +37,12 @@ The identity graph links each Organization's `founder` to the same Person identi
 
 The Fixyt page includes a SoftwareApplication description without fabricated offers or ratings. This is semantic markup, not a promise of eligibility for a software rich result. Visible FAQs are rendered in HTML, without adding FAQPage markup solely to pursue a search feature.
 
+## Google site-name preference
+
+The root layout publishes the identity graph in the initial HTML head. Its single `WebSite` node uses **Sandeep Gudisa** as `name`, **Gudisa Sandeep** as `alternateName`, and the canonical root URL as `url`. The existing `og:site_name`, application name, and visible wordmark consistently identify Sandeep Gudisa. The SEO audit checks these signals and rejects duplicate WebSite nodes or an incorrect homepage URL.
+
+The site already had the required WebSite name and URL before this refinement. Adding the alternate name and moving the graph into the head strengthens the implementation but does not establish why Google previously selected Netlify or guarantee that its display will change. JSON-LD in the body was also valid. Google chooses site names automatically, and the deployed homepage must be recrawled before it can consider an update. See the manual checklist for deployment, live inspection, and recrawl steps, and [Google's site-name documentation](https://developers.google.com/search/docs/appearance/site-names) for the feature requirements.
+
 ## Environment settings
 
 `NEXT_PUBLIC_SITE_URL` may override the canonical origin when intentionally moving to another production domain. It must be an HTTP(S) origin without a path, query string, or fragment. The confirmed Netlify address is the default. Change this value before building a deployment on a replacement canonical domain and plan redirects from the old address.

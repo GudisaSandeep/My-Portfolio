@@ -42,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
+        <StructuredData data={identityGraph} />
         <link
           rel="preload"
           href="/fonts/space-grotesk-500.ttf"
@@ -58,7 +59,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <StructuredData data={identityGraph} />
         <ScrollProgress />
         {children}
       </body>

@@ -69,6 +69,8 @@ for (const route of routes) {
     `${route.path}: sharing title matches`,
   );
   assert.equal(new URL(meta(html, "og:url")[0]).href, absolute(route.path));
+  assert.deepEqual(meta(html, "og:site_name"), ["Sandeep Gudisa"]);
+  assert.deepEqual(meta(html, "application-name"), ["Sandeep Gudisa"]);
   assert.equal(meta(html, "twitter:card")[0], "summary_large_image");
   assert(new URL(meta(html, "og:image")[0]).origin === origin);
   assert.equal(
@@ -112,6 +114,17 @@ for (const route of routes) {
   ].map((m) => JSON.parse(m[1]));
   const nodes = schemas.flatMap((schema) => schema["@graph"] || [schema]);
   const people = nodes.filter((n) => n["@type"] === "Person");
+  const websites = nodes.filter((n) => n["@type"] === "WebSite");
+  assert.equal(websites.length, 1, `${route.path}: one preferred site identity`);
+  assert.equal(websites[0]["@id"], absolute("/#website"));
+  assert.equal(websites[0].url, absolute("/"));
+  assert.equal(websites[0].name, "Sandeep Gudisa");
+  assert.equal(websites[0].alternateName, "Gudisa Sandeep");
+  const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] || "";
+  assert(
+    head.includes('"@type":"WebSite"'),
+    `${route.path}: site-name JSON-LD is present in the initial HTML head`,
+  );
   assert.equal(people.length, 1, `${route.path}: consistent person identity`);
   assert.equal(people[0]["@id"], absolute("/#person"));
   for (const id of [

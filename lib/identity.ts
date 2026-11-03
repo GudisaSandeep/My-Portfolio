@@ -42,6 +42,7 @@ export const identityGraph = {
       "@id": websiteId,
       url: absoluteUrl("/"),
       name: profile.name,
+      alternateName: profile.alternateName,
       description: profile.description,
       inLanguage: "en-IN",
       publisher: { "@id": personId },

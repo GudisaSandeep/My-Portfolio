@@ -63,6 +63,18 @@ https://sandeepgudisa.netlify.app/sitemap.xml
 
 Use URL Inspection on the homepage, `/about`, and `/projects/fixyt`. Run the live test, inspect the reported canonical and indexing eligibility, and request indexing where appropriate. Submission requests discovery; it does not guarantee indexing, rankings, or a particular completion time.
 
+### If Google displays “Netlify” above the page title
+
+That label is Google's **site name**, which is separate from the blue page title. The preferred name is **Sandeep Gudisa**. The initial HTML head contains one `WebSite` node with that name, alternate name **Gudisa Sandeep**, and the canonical homepage URL. Open Graph and application metadata also use **Sandeep Gudisa**, matching the visible navigation branding.
+
+1. Confirm Netlify has published the latest `main` commit, with `NEXT_PUBLIC_SITE_URL=https://sandeepgudisa.netlify.app/` in Production.
+2. In the verified Search Console property, inspect **https://sandeepgudisa.netlify.app/** (the homepage).
+3. Select **Test live URL**, then inspect **View tested page → HTML**. Search for `"@type":"WebSite"` and confirm `name`, `alternateName`, and `url` match the values above. Confirm `og:site_name` is **Sandeep Gudisa** and the page can be indexed.
+4. Select **Request indexing** after the live test succeeds. This requests a new crawl; it does not directly edit the site name shown in Search.
+5. Recheck after Google recrawls and reprocesses the homepage. This may take days to weeks; repeated requests do not guarantee faster processing. Keep your name and homepage link consistent on your public profiles.
+
+Google chooses the displayed name automatically; these signals express a preference rather than guarantee a change. A Netlify subdomain is eligible for its own site name. Use Schema.org Validator for this markup: Google's Rich Results Test does not support site names. See [Google's site-name guidance](https://developers.google.com/search/docs/appearance/site-names).
+
 ## 5. Verify Bing Webmaster Tools
 
 Open [Bing Webmaster Tools](https://www.bing.com/webmasters/). Import the verified Search Console property if offered, or use Bing’s own verification process.
